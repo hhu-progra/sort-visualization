@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'de.hhu.cs.progra'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.ow2.asm:asm:9.7'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Premain-Class': 'instrumentation.ArrayAccessAgent',
+                'Can-Redefine-Classes': 'true',
+                'Can-Retransform-Classes': 'true'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    exclude 'Sort.class', 'Bar.class'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << '-g' // include debug information
+}
