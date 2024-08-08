@@ -26,7 +26,7 @@ NUM_SMALL_ARRAYS_X=3 NUM_SMALL_ARRAYS_Y=3 DRAW_PAUSE_LENGTH=100 java -cp ./build
 
 == Technical Details
 
-The general idea is that we use a Java agent to instrument the student code. The agent adds additional code around all byte code instructions which read or modify an array of type `Bar[]`. This additional code sends the array to out visualization methods which then draw the arrays.
+The general idea is that we use a Java agent to instrument the student code. The agent adds additional code around all byte code instructions which read or modify an array of type `Bar[]`. This additional code sends the array to our visualization methods which then draw the arrays.
 
 == Instructions for students
 
