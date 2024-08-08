@@ -1,4 +1,4 @@
-= Visualization for Sort Algorithms
+= Visualization for Sorting Algorithms
 
 Goals:
 
